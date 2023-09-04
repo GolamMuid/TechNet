@@ -9,7 +9,7 @@ interface IProduct {
 
 const initialState: IProduct = {
   status: false,
-  priceRange: 150,
+  priceRange: 1500000,
 };
 
 const productSlice = createSlice({

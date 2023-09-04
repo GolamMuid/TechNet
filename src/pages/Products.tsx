@@ -55,6 +55,8 @@ export default function Products() {
     productsData = data?.data;
   }
 
+  console.log(productsData);
+
   return (
     <div className="grid grid-cols-12 max-w-7xl mx-auto relative ">
       <div className="col-span-3 z mr-10 space-y-5 border rounded-2xl border-gray-200/80 p-5 self-start sticky top-16 h-[calc(100vh-80px)]">
@@ -73,7 +75,7 @@ export default function Products() {
           <div className="max-w-xl">
             <Slider
               defaultValue={[150]}
-              max={150}
+              max={1500000}
               min={0}
               step={1}
               onValueChange={(value) => handleSlider(value)}
