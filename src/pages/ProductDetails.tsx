@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import ProductReview from '@/components/ProductReview';
 import { Button } from '@/components/ui/button';
-import { useGetSingleProductQuery } from '@/redux/api/apiSlice';
+import { useGetSingleProductQuery } from '@/redux/features/products/productApi';
+
 // import { IProduct } from '@/types/globalTypes';
 // import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -20,7 +22,14 @@ export default function ProductDetails() {
 
   //! Temporary code ends here
 
-  const { isLoading, error, data: product } = useGetSingleProductQuery(id);
+  const {
+    isLoading,
+    error,
+    data: product,
+  } = useGetSingleProductQuery(id, {
+    refetchOnMountOrArgChange: true,
+    pollingInterval: 3000,
+  });
 
   return (
     <>
@@ -39,7 +48,7 @@ export default function ProductDetails() {
           <Button>Add to cart</Button>
         </div>
       </div>
-      <ProductReview />
+      <ProductReview id={id!} />
     </>
   );
 }

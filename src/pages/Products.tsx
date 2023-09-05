@@ -1,25 +1,19 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import ProductCard from '@/components/ProductCard';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
 import { useToast } from '@/components/ui/use-toast';
-import { useGetProductsQuery } from '@/redux/api/apiSlice';
+import { useGetProductsQuery } from '@/redux/features/products/productApi';
+
 import {
   setPriceRange,
   toggleState,
 } from '@/redux/features/products/productSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { IProduct } from '@/types/globalTypes';
-import { useEffect, useState } from 'react';
 
 export default function Products() {
-  // const [data, setData] = useState<IProduct[]>([]);
-  // useEffect(() => {
-  //   fetch('./data.json')
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data));
-  // }, []);
-
   const { isLoading, error, data } = useGetProductsQuery(undefined);
 
   console.log(data);
@@ -28,12 +22,8 @@ export default function Products() {
 
   const dispatch = useAppDispatch();
 
-  //! Dummy Data
-
   const status = useAppSelector((state) => state.product.status);
   const priceRange = useAppSelector((state) => state.product.priceRange);
-
-  //! **
 
   const handleSlider = (value: number[]) => {
     dispatch(setPriceRange(value[0]));
