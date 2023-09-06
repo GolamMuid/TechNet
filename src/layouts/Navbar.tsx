@@ -60,6 +60,16 @@ export default function Navbar() {
                     <DropdownMenuItem className="cursor-pointer">
                       Profile
                     </DropdownMenuItem>
+                    <Link to="/login">
+                      <DropdownMenuItem className="cursor-pointer">
+                        Login
+                      </DropdownMenuItem>
+                    </Link>
+                    <Link to="/signup">
+                      <DropdownMenuItem className="cursor-pointer">
+                        Sign up
+                      </DropdownMenuItem>
+                    </Link>
                     <DropdownMenuItem className="cursor-pointer">
                       Billing
                     </DropdownMenuItem>
